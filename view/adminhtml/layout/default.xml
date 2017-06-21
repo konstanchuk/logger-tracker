@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Logger Tracker Extension for Magento 2
+ *
+ * @author     Volodymyr Konstanchuk http://konstanchuk.com
+ * @copyright  Copyright (c) 2017 The authors
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      layout="admin-1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Konstanchuk_LoggerTracker::css/style.css" />
+    </head>
+    <body>
+        <referenceContainer name="header">
+            <block class="Konstanchuk\LoggerTracker\Block\Adminhtml\NotificationIcon"
+                   name="logger_tracker_notification_icon"
+                   as="logger_tracker_notification_icon"
+                   after="global.search"
+                   template="Konstanchuk_LoggerTracker::notification_icon.phtml"
+                   acl="Konstanchuk_LoggerTracker::list" />
+        </referenceContainer>
+
+        <referenceContainer name="notifications">
+            <block class="Konstanchuk\LoggerTracker\Block\Adminhtml\NotificationWindow"
+                   name="logger_tracker_notification_window"
+                   as="logger_tracker_notification_window"
+                   acl="Konstanchuk_LoggerTracker::list"
+                   template="Konstanchuk_LoggerTracker::notification_window.phtml"/>
+        </referenceContainer>
+
+        <move element="logger_tracker_notification_icon"
+              before="global.search"
+              destination="header.inner.right" />
+    </body>
+</page>

@@ -1,0 +1,32 @@
+<!--
+/**
+ * Logger Tracker Extension for Magento 2
+ *
+ * @author     Volodymyr Konstanchuk http://konstanchuk.com
+ * @copyright  Copyright (c) 2017 The authors
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ */
+-->
+<!--@subject {{trans "Logger Tracker Notification"}} @-->
+{{template config_path="design/email/header_template"}}
+<table><tr class="email-intro"><td>
+    <div style="font-size: 14px">
+        {{trans "The number of logs that were found on the site after the last notification:"}}<br/><br/>
+        {{trans "emergency = %count" count=$data.count_error_600}}<br />
+        {{trans "alert = %count" count=$data.count_error_550}}<br />
+        {{trans "critical = %count" count=$data.count_error_500}}<br />
+        {{trans "error = %count" count=$data.count_error_400}}<br />
+        {{trans "warning = %count" count=$data.count_error_300}}<br />
+        {{trans "notice = %count" count=$data.count_error_250}}<br />
+        {{trans "info = %count" count=$data.count_error_200}}<br />
+        {{trans "debug = %count" count=$data.count_error_100}}<br /><br/>
+        {{trans "Total sum log records: %sum" sum=$data.sum_logs}}<br /><br/>
+    </div>
+    <div style="font-size: 11px">
+        {{trans "This email was sent because there is a module on your site that monitors logs on the site."}}<br />
+        {{trans "Make sure there are no errors on the site that can harm your business."}}<br />
+        {{trans "If you can not understand the error in admin panel, contact the developers of your site."}}<br />
+        {{trans "It is recommended that this letter is received by the developers of your site for tracking failures on it."}}
+    </div>
+</td></tr></table>
+{{template config_path="design/email/footer_template"}}

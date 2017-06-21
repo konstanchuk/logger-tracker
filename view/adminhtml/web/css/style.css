@@ -1,0 +1,96 @@
+.grid-severity-critical.logger-tracker-lvl-100 {
+    background: #e9ffbf none repeat scroll 0 0;
+    border-color: #77e200;
+    color: #63bf09;
+}
+
+.grid-severity-critical.logger-tracker-lvl-200 {
+    background: #def9c9 none repeat scroll 0 0;
+    border-color: #22e2cc;
+    color: #3ca7e2;
+}
+
+.grid-severity-critical.logger-tracker-lvl-250 {
+    background: #dad5e2 none repeat scroll 0 0;
+    border-color: #e21ec7;
+    color: #c735e2;
+}
+
+.grid-severity-critical.logger-tracker-lvl-300 {
+    background: #f9f0d8 none repeat scroll 0 0;
+    border-color: #e2ab02;
+    color: #e28149;
+}
+
+.grid-severity-critical.logger-tracker-lvl-400 {
+    background: #f9d4d4 none repeat scroll 0 0;
+    border-color: #e2006e;
+    color: #e22662;
+}
+
+.grid-severity-critical.logger-tracker-lvl-500 {
+    background: #f9694d none repeat scroll 0 0;
+    border-color: #e24c37;
+    color: #f9d4d4;
+}
+
+.grid-severity-critical.logger-tracker-lvl-550 {
+    background: #e20d4e none repeat scroll 0 0;
+    border-color: #e20036;
+    color: #f9d4d4;
+}
+
+.grid-severity-critical.logger-tracker-lvl-600 {
+    background: #f9001a none repeat scroll 0 0;
+    border-color: #e22626;
+    color: #e2d5dd;
+    font-weight: bold;
+}
+
+.logger-tracker.notification-icon {
+    float: right;
+    text-align: center;
+    overflow: hidden;
+}
+
+.logger-tracker.notification-icon a {
+    width: 25px;
+    display: block;
+    cursor: pointer;
+    line-height: 25px;
+    margin-left: 5px;
+    margin-top: 6px;
+    color: white;
+    height: 25px;
+    font-weight: bold;
+    font-size: 14px;
+    background: #C51162;
+    border-radius: 50%;
+}
+
+.logger-tracker-popup-text .grid-severity-critical {
+    max-width: 200px;
+}
+
+.logger-tracker-popup-text pre {
+    overflow: inherit;
+}
+
+table.logger-tracker-levels-table,
+table.logger-tracker-levels-table td,
+table.logger-tracker-levels-table th {
+    border: 1px solid #333333;
+}
+
+table.logger-tracker-levels-table td,
+table.logger-tracker-levels-table th {
+    padding: 3px;
+}
+
+table.logger-tracker-levels-table td {
+    vertical-align: top;
+}
+
+table.logger-tracker-levels-table {
+    margin: 0 auto;
+}

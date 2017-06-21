@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Logger Tracker Extension for Magento 2
+ *
+ * @author     Volodymyr Konstanchuk http://konstanchuk.com
+ * @copyright  Copyright (c) 2017 The authors
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Konstanchuk_LoggerTracker::list"
+             title="Logger Tracker List"
+             translate="title"
+             module="Konstanchuk_LoggerTracker"
+             sortOrder="100"
+             parent="Magento_Backend::system"
+             resource="Konstanchuk_LoggerTracker::list"
+             action="logger_tracker/log/list" />
+    </menu>
+</config>

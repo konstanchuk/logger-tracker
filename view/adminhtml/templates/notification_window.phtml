@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Logger Tracker Extension for Magento 2
+ *
+ * @author     Volodymyr Konstanchuk http://konstanchuk.com
+ * @copyright  Copyright (c) 2017 The authors
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ */
+
+/** @var \Konstanchuk\LoggerTracker\Block\Adminhtml\NotificationWindow $block */
+
+?>
+<ul class="message-system-list"
+    style="display: none;"
+    data-mage-init='{
+        "Magento_Ui/js/modal/modal": {
+            "autoOpen": true,
+            "buttons": false,
+            "modalClass": "modal-system-messages",
+            "title": "<?php /* @escapeNotVerified */ echo $block->getHeaderText(); ?>"
+        }
+    }'>
+    <li class="message message-warning warning">
+        <?php /* @escapeNotVerified */ echo $block->getNoticeMessageText(); ?><br/>
+        <a href="<?php /* @escapeNotVerified */ echo $block->getNoticeMessageUrl(); ?>"><?php /* @escapeNotVerified */ echo $block->getReadDetailsText(); ?></a>
+    </li>
+</ul>

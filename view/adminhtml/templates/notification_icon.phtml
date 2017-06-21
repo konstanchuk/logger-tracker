@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Logger Tracker Extension for Magento 2
+ *
+ * @author     Volodymyr Konstanchuk http://konstanchuk.com
+ * @copyright  Copyright (c) 2017 The authors
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ */
+
+/** @var \Konstanchuk\LoggerTracker\Block\Adminhtml\NotificationIcon $block */
+
+$count = $block->getCountUnreadRecord();
+?>
+<div class="logger-tracker notification-icon">
+    <a href="<?php echo $block->escapeXssInUrl($block->getUrl('logger_tracker/log/list'))?>">
+        <?php /* @escapeNotVerified */ echo $count > 100 ? 99 : $count; ?>
+    </a>
+</div>

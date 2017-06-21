@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Logger Tracker Extension for Magento 2
+ *
+ * @author     Volodymyr Konstanchuk http://konstanchuk.com
+ * @copyright  Copyright (c) 2017 The authors
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Konstanchuk\LoggerTracker\Api\LogListRepositoryInterface"
+                type="Konstanchuk\LoggerTracker\Model\LogListRepository"/>
+    <preference for="Konstanchuk\LoggerTracker\Api\Data\LogListInterface"
+                type="Konstanchuk\LoggerTracker\Model\LogList"/>
+    <preference for="Konstanchuk\LoggerTracker\Api\Data\LogListSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults"/>
+
+    <type name="Monolog\Logger">
+        <plugin name="konstanchuk_logger_tracker"
+                type="Konstanchuk\LoggerTracker\Plugin\AddRecord"
+                sortOrder="10000"
+                disabled="false"/>
+    </type>
+
+    <!-- start logs grid -->
+    <virtualType name="LoggerTrackerGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="LoggerTrackerGridDataProvider"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Konstanchuk\LoggerTracker\Model\Resource\LogList\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">LoggerTrackerGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Konstanchuk\LoggerTracker\Model\ResourceModel\LogList\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">konstanchuk_logger_tracker</argument>
+            <argument name="resourceModel" xsi:type="string">Konstanchuk\LoggerTracker\Model\Resource\LogList</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="logger_tracker_listing_data_source" xsi:type="string">Konstanchuk\LoggerTracker\Model\ResourceModel\LogList\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- end logs grid -->
+
+</config>
